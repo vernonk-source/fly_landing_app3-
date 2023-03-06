@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+
+
+    <link rel="stylesheet" href="C:\Users\verno\Desktop\fly_landing_app3-\src\css\main.css">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loading_text">
+            LOADING
+        </div>
+    </div>
+
+    <script src="C:\Users\verno\Desktop\fly_landing_app\fly_landing_app\src\js\main.js"></script>
+    <div class="title">
+        <ul>
+            <li style="transform: rotate(-360deg);">
+                <input id="c1" type="button">
+                <label for="c1" style="transform: rotate(360deg);">HOME</label>
+
+            </li>
+            <li style="transform: rotate(-360deg);">
+                <input id="c2" type="button" onclick="location.href='https://www.instagram.com/fly.senga';">
+                <label for="c2" style="transform: rotate(360deg);">
+                    SOCIAL
+                </label>
+            </li>
+            <li style="transform: rotate(-360deg);" class="dropdown">
+                <input id="c3" type="button" button onclick="myFunction()" class="dropbtn">
+                <label for="c3" style="transform: rotate(360deg);" class="select">ABOUT US</label>
+                <div id="myDropdown" class="dropdown-content">
+                    <a>FLY is a company founded by Felix Senga and Blaise Nsenguwera – two brothers who have a vision to
+                        create opportunities for small businesses and provide convenience to customers. This vision focuses
+                        on changing how the retail and event industries work. 
+                    </a>
+                    <a> They decided to do this by creating necessary
+                        technologies and services that have never been seen before through the unique combination of
+                        complementing industries. By doing so, they aim to foster the next generation of innovation in the
+                        retail and event sectors while increasing visibility for small to medium sized businesses.
+                    </a>
+                    
+                    <a>    
+                        Quote from Blaise: “When we started this journey, our whole mission was to create a platform where
+                        up and coming brands can be seen and receive the recognition they deserve.”
+                 </a>
+                  <a>
+                        Quote from Felix: “Our focus has always been about how we can improve the customer experience
+                        and encourage collaboration within our industries. We hope that FLY can offer something different to
+                        the public and act as a catalyst for people who want to chase their creative dreams and showcase
+                        their talent.”
+                    </a>
+                </div>
+
+            </li>
+
+            <li style="transform: rotate(-360deg);">
+                <input id="c4" type="button" onclick="location.href='https://forms.gle/jcGDG7T3HxE3QrT96';">
+                <label for="c4" style="transform: rotate(360deg);">CONTACT</label>
+            </li>
+
+
+        </ul>
+
+        <button><img src="C:\Users\verno\Desktop\fly_landing_app3-\images\flylogo.png" height="400" width="400" /> </button>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        var nbOptions = 8;
+        var angleStart = -360;
+
+        // jquery rotate animation
+        function rotate(li, d) {
+            $({ d: angleStart }).animate({ d: d }, {
+                step: function (now) {
+                    $(li)
+                        .css({ transform: 'rotate(' + now + 'deg)' })
+                        .find('label')
+                        .css({ transform: 'rotate(' + (-now) + 'deg)' });
+                }, duration: 0
+            });
+        }
+
+        // show / hide the options
+        function toggleOptions(s) {
+            $(s).toggleClass('open');
+            var li = $(s).find('li');
+            var deg = $(s).hasClass('half') ? 180 / (li.length - 1) : 360 / li.length;
+            for (var i = 0; i < li.length; i++) {
+                var d = $(s).hasClass('half') ? (i * deg) - 90 : i * deg;
+                $(s).hasClass('open') ? rotate(li[i], d) : rotate(li[i], angleStart);
+            }
+        }
+
+        $('.title button').click(function (e) {
+            toggleOptions($(this).parent());
+        });
+
+        setTimeout(function () { toggleOptions('.title'); }, 100);
+
+
+
+
+    </script>
+
+    <script>
+   
+        function myFunction() {
+            document.getElementById("myDropdown").classList.toggle("show");
+        }
+
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+                        
+
+    </script>
+
+</body>
+</html>
+
+
